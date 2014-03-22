@@ -1,45 +1,9 @@
 'use strict';
 
 angular.module('rummyApp')
-	.controller('HandCtrl', function ($scope, socket) {
+	.controller('HandCtrl', function ($scope, socket, deck) {
 	// TODO: Swap this for a service that retrieves the cards from the deck;
-		$scope.cards = [
-			{
-				id: 0,
-				suit: 'spades',
-				value: '1'
-			},
-			{
-				id: 1,
-				suit: 'spades',
-				value: '2'
-			},
-			{
-				id: 2,
-				suit: 'spades',
-				value: '3'
-			},
-			{
-				id: 3,
-				suit: 'spades',
-				value: '4'
-			},
-			{
-				id: 4,
-				suit: 'spades',
-				value: '5'
-			},
-			{
-				id: 5,
-				suit: 'spades',
-				value: '6'
-			},
-			{
-				id: 6,
-				suit: 'spades',
-				value: '7'
-			}
-		];
+		$scope.cards = deck.dealFromDeck(7);
 
 		$scope.name = 'Guest';
 
@@ -50,7 +14,7 @@ angular.module('rummyApp')
 
 		$scope.playCard = function(card) {
 			socket.emit('send', {
-				text: card.value + ' of ' + card.suit,
+				text: card.display.value + ' of ' + card.display.suit,
 				user: $scope.name
 			});
 		};

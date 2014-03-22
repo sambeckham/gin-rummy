@@ -5,7 +5,7 @@
     <input id='name' type='text' ng-model="name" placeholder="Username">
     <ul class="cards">
         <li ng-repeat="card in cards" ng-click="playCard(card)">
-            {{ card.value }} of {{ card.suit }}
+            {{ card.display.value }} of {{ card.display.suit }}
         </li>
     </ul>
 </div>
