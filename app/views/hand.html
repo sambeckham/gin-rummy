@@ -1,0 +1,11 @@
+<div class="hand">
+	<div class="chat" ng-controller="GameCtrl">
+	    <div class="message" ng-repeat="message in messages" style="display: block;"><strong>{{ message.user }}:</strong> {{ message.text }}</div>
+	</div>
+    <input id='name' type='text' ng-model="name" placeholder="Username">
+    <ul class="cards">
+        <li ng-repeat="card in cards" ng-click="playCard(card)">
+            {{ card.value }} of {{ card.suit }}
+        </li>
+    </ul>
+</div>

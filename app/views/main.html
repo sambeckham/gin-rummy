@@ -1,0 +1,7 @@
+<h1>Welcome!</h1>
+<p>Your code is g{{ roomId }}</p>
+<p>Please go to <a href="http://{{ ip }}:{{ port }}/#/g{{ roomId }}">http://{{ ip }}:{{ port }}/#/g{{ roomId }}</a> to enter the room</p>
+
+<div class="chat" ng-controller="GameCtrl">
+    <div class="message" ng-repeat="message in messages" style="display: block;"><strong>{{ message.user }}:</strong> {{ message.text }}</div>
+</div>
