@@ -1,31 +1,77 @@
 'use strict';
 
 angular.module('rummyApp')
-.controller('GameCtrl', function ($scope, $routeParams, socket) {
-	var room = $routeParams.roomId || $scope.roomId;
-	socket.room = room;
-	socket.emit('switchRoom', { room: room });
+.controller('GameCtrl', function ($scope, socket, deck) {
+	var handSize = 7;
 
-	$scope.messages = [];
+	// TODO: A better way of getting a random hash
+	$scope.username = Math.random().toString(36).slice(10);
+	$scope.deck = [];
+	$scope.pile = [];
+	$scope.hand = [];
 
-	socket.on('message', function(data) {
-		if(data.text) {
-			data.user = data.user || 'Server';
-			$scope.messages.push(data);
-		}else{
-			console.log('There is a problem:', data);
-		}
+	socket.emit('deal', deck.shuffle());
+
+	socket.on('update-deck', function(cards) {
+		$scope.deck = cards;
 	});
 
-	$scope.sendMessage = function() {
-		if($scope.name === '') {
-			// alert('Please type your name!');
-		}else{
-			socket.emit('send', {
-				text: $scope.message,
-				user: $scope.name
+	socket.on('update-pile', function(cards) {
+		$scope.pile = cards;
+	});
+
+	socket.on('update-hand-' + $scope.username, function(cards) {
+		$scope.hand = cards;
+	});
+
+	$scope.dealToHand = function() {
+		if ( $scope.hand.length > handSize ) {
+			return;
+		}
+
+		var amount = 1;
+
+		if ($scope.hand.length === 0) {
+			amount = handSize;
+		}
+
+		socket.emit('move-cards', {
+			'origin' : 'deck',
+			'destination' : 'hand-' + $scope.username,
+			'amount' : amount
+		});
+	};
+
+	$scope.pickUpFromPile = function() {
+		if ( $scope.hand.length > handSize ){
+			console.log('You’ve already picked a card up');
+			return;
+		}
+
+		socket.emit('move-cards', {
+			'origin' : 'pile',
+			'destination' : 'hand-' + $scope.username,
+			'amount' : 1
+		});
+	};
+
+	$scope.throwFromHand = function(card) {
+		if($scope.hand.length < handSize + 1) {
+			console.log('You have to pick up a card first');
+			return;
+		}
+		socket.emit('move-cards', {
+			'origin' : 'hand-' + $scope.username,
+			'destination' : 'pile',
+			'amount' : 1,
+			'root' : card
+		});
+		if ($scope.pile.length > 0) {
+			socket.emit('move-cards', {
+				'origin' : 'pile',
+				'destination' : 'deck',
+				'amount' : 1
 			});
-			$scope.message = '';
 		}
 	};
 });

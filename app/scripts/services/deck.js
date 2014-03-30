@@ -9,6 +9,23 @@ angular.module('rummyApp')
             i,
             j,
             k = 0,
+            buildDeck = function() {
+                for ( i = 0; i < suits.length; i++ ) {
+                    for ( j = 0; j < values.length; j++ ) {
+                        var card = {
+                            id : k,
+                            suit : i,
+                            value : j,
+                            display : {
+                                suit : suits[i],
+                                value : values[j]
+                            }
+                        };
+                        deck.push(card);
+                        k ++;
+                    }
+                }
+            },
             shuffle = function(deck) {
                 var i = deck.length,
                     j,
@@ -24,33 +41,12 @@ angular.module('rummyApp')
                 return deck;
             };
 
-        for ( i = 0; i < suits.length; i++ ) {
-            for ( j = 0; j < values.length; j++ ) {
-                var card = {
-                    id : k,
-                    suit : i,
-                    value : j,
-                    display : {
-                        suit : suits[i],
-                        value : values[j]
-                    }
-                };
-                deck.push(card);
-                k ++;
-            }
-        }
-
-        shuffle(deck);
+        buildDeck();
 
         // Public API here
         return {
-            getDeck: function () {
-                return deck;
-            },
-            dealFromDeck: function (amount) {
-                var cards = deck.slice(0, amount);
-                // TODO: Make sure these get removed from the deck
-                return cards;
+            shuffle: function() {
+                return shuffle(deck);
             }
         };
     });

@@ -1,3 +1,4 @@
+/*global io:false */
 'use strict';
 
 angular.module('rummyApp')
@@ -19,16 +20,6 @@ angular.module('rummyApp')
 			},
 			emit: function(eventName, data, callback) {
 				socket.emit(eventName, data, function() {
-					var args = arguments;
-					$rootScope.$apply(function() {
-						if (callback) {
-							callback.apply(socket, args);
-						}
-					});
-				});
-			},
-			room: function(eventName, callback) {
-				socket.room(eventName, function() {
 					var args = arguments;
 					$rootScope.$apply(function() {
 						if (callback) {
