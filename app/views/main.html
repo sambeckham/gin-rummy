@@ -1,17 +1,6 @@
-<h1>Welcome!</h1>
 <div class="game" ng-controller="GameCtrl">
-	<button ng-click="dealToHand(7)">Deal</button>
-	<span class="card" ng-click="pickUpFromPile()">{{ pile[0].display.value }} of {{ pile[0].display.suit }}</span>
-
-	<ul class="hand">
-		<li ng-repeat="card in hand" class="card" ng-click="throwFromHand($index)">
-			{{ card.display.value }} of {{ card.display.suit }}
-		</li>
-	</ul>
-	<input type="text" ng-model="username">
-	<ul class="deck">
-		<li ng-repeat="card in deck" class="">
-			{{ card.display.value }} of {{ card.display.suit }}
-		</li>
-	</ul>
+	<deck></deck>
+	<pile></pile>
+	<hand></hand>
+	<!-- <input type="text" ng-model="username" select-all-on-focus> -->
 </div>

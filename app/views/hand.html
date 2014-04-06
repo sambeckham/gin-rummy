@@ -1,17 +1,5 @@
-<div class="chat" ng-controller="GameCtrl">
-    <div class="message" ng-repeat="message in messages" style="display: block;">
-    	<strong>{{ message.user }}:</strong> {{ message.text }}
-    </div>
-    <ul class="deck">
-		<li ng-repeat="card in deck">{{ card.display.value }} of {{ card.display.suit }}</li>
-	</ul>
-</div>
-<div class="hand">
-	<button ng-click="getCards(7)">Deal</button>
-    <input id='name' type='text' ng-model="name" placeholder="Username">
-    <ul class="cards">
-        <li class="card suit_{{ card.display.suit }} value_{{ card.value }}" ng-repeat="card in cards" ng-click="playCard(card)">
-            <span>{{ card.display.value }} of {{ card.display.suit }}</span>
-        </li>
-    </ul>
-</div>
+<ul class="hand">
+    <li ng-repeat="card in hand" class="card card_{{ card.display.suit }} card_{{ card.display.value }}" ng-click="throwFromHand($index)">
+        {{ card.display.value }} of {{ card.display.suit }}
+    </li>
+</ul>
