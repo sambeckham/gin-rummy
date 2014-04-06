@@ -1,3 +1,5 @@
-<div class="card card_{{ card.display.suit }} card_{{ card.display.value }}" ng-click="pickUpFromPile()">
-	{{ pile[0].display.value }} of {{ pile[0].display.suit }}
-</div>
+<ul class="pile">
+	<li ng-repeat="card in pile" class="card card_{{ card.display.suit }} card_{{ card.display.value }}" ng-click="pickUpFromPile($index)">
+        {{ card.display.value }} of {{ card.display.suit }}
+    </li>
+</ul>

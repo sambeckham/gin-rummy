@@ -15,6 +15,14 @@
 	align-items: stretch;
 }
 
+.pile{
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-around;
+	align-content: center;
+	align-items: stretch;
+}
+
 .suit_spades,
 .suit_clubs{
 	&:after,

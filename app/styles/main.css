@@ -272,12 +272,17 @@ article a:visited {
   padding: 1.618033em;
   border: 1px solid #95a5a6;
   cursor: pointer;
+  -webkit-border-radius: 0.618033em;
+  -moz-border-radius: 0.618033em;
+  -ms-border-radius: 0.618033em;
+  -o-border-radius: 0.618033em;
+  border-radius: 0.618033em;
   -webkit-transition: all 0.4s;
   -moz-transition: all 0.4s;
   -o-transition: all 0.4s;
   transition: all 0.4s;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/sam\/Sites\/rummy\/app\/sass\/patterns\/_cards\.scss}line{font-family:\0000321}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/sam\/Sites\/rummy\/app\/sass\/patterns\/_cards\.scss}line{font-family:\0000322}}
 .card:hover, .card:focus {
   z-index: 2;
   -webkit-box-shadow: 0 0 1.618033em rgba(44, 62, 80, 0.618033);
@@ -289,12 +294,12 @@ article a:visited {
   -o-transform: scale(1.06);
   transform: scale(1.06);
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/sam\/Sites\/rummy\/app\/sass\/patterns\/_cards\.scss}line{font-family:\0000329}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/sam\/Sites\/rummy\/app\/sass\/patterns\/_cards\.scss}line{font-family:\0000330}}
 .card + .card {
   margin-left: -150px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/sam\/Sites\/rummy\/app\/sass\/patterns\/_cards\.scss}line{font-family:\0000334}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/sam\/Sites\/rummy\/app\/sass\/patterns\/_cards\.scss}line{font-family:\0000335}}
 .card_back {
   background-image: url("/images/card-back.svg");
   -webkit-box-shadow: inset 0 0 0 0.618033em #ecf0f1;
@@ -321,110 +326,119 @@ article a:visited {
   align-items: stretch;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/sam\/Sites\/rummy\/app\/sass\/_shame\.scss}line{font-family:\0000321}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/sam\/Sites\/rummy\/app\/sass\/_shame\.scss}line{font-family:\0000318}}
+.pile {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-content: center;
+  align-items: stretch;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/sam\/Sites\/rummy\/app\/sass\/_shame\.scss}line{font-family:\0000329}}
 .suit_spades:after, .suit_spades:before,
 .suit_clubs:after,
 .suit_clubs:before {
   background-color: black;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/sam\/Sites\/rummy\/app\/sass\/_shame\.scss}line{font-family:\0000325}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/sam\/Sites\/rummy\/app\/sass\/_shame\.scss}line{font-family:\0000333}}
 .suit_spades:before,
 .suit_clubs:before {
   top: 10px;
   left: 10px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/sam\/Sites\/rummy\/app\/sass\/_shame\.scss}line{font-family:\0000329}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/sam\/Sites\/rummy\/app\/sass\/_shame\.scss}line{font-family:\0000337}}
 .suit_spades:after,
 .suit_clubs:after {
   bottom: 10px;
   right: 10px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/sam\/Sites\/rummy\/app\/sass\/_shame\.scss}line{font-family:\0000338}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/sam\/Sites\/rummy\/app\/sass\/_shame\.scss}line{font-family:\0000346}}
 .suit_hearts:after, .suit_hearts:before,
 .suit_diamonds:after,
 .suit_diamonds:before {
   background-color: red;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/sam\/Sites\/rummy\/app\/sass\/_shame\.scss}line{font-family:\0000342}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/sam\/Sites\/rummy\/app\/sass\/_shame\.scss}line{font-family:\0000350}}
 .suit_hearts:before,
 .suit_diamonds:before {
   top: 10px;
   left: 10px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/sam\/Sites\/rummy\/app\/sass\/_shame\.scss}line{font-family:\0000346}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/sam\/Sites\/rummy\/app\/sass\/_shame\.scss}line{font-family:\0000354}}
 .suit_hearts:after,
 .suit_diamonds:after {
   bottom: 10px;
   right: 10px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/sam\/Sites\/rummy\/app\/sass\/_shame\.scss}line{font-family:\0000358}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/sam\/Sites\/rummy\/app\/sass\/_shame\.scss}line{font-family:\0000366}}
 .value_0:before, .value_0:after {
   content: "0";
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/sam\/Sites\/rummy\/app\/sass\/_shame\.scss}line{font-family:\0000358}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/sam\/Sites\/rummy\/app\/sass\/_shame\.scss}line{font-family:\0000366}}
 .value_1:before, .value_1:after {
   content: "1";
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/sam\/Sites\/rummy\/app\/sass\/_shame\.scss}line{font-family:\0000358}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/sam\/Sites\/rummy\/app\/sass\/_shame\.scss}line{font-family:\0000366}}
 .value_2:before, .value_2:after {
   content: "2";
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/sam\/Sites\/rummy\/app\/sass\/_shame\.scss}line{font-family:\0000358}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/sam\/Sites\/rummy\/app\/sass\/_shame\.scss}line{font-family:\0000366}}
 .value_3:before, .value_3:after {
   content: "3";
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/sam\/Sites\/rummy\/app\/sass\/_shame\.scss}line{font-family:\0000358}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/sam\/Sites\/rummy\/app\/sass\/_shame\.scss}line{font-family:\0000366}}
 .value_4:before, .value_4:after {
   content: "4";
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/sam\/Sites\/rummy\/app\/sass\/_shame\.scss}line{font-family:\0000358}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/sam\/Sites\/rummy\/app\/sass\/_shame\.scss}line{font-family:\0000366}}
 .value_5:before, .value_5:after {
   content: "5";
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/sam\/Sites\/rummy\/app\/sass\/_shame\.scss}line{font-family:\0000358}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/sam\/Sites\/rummy\/app\/sass\/_shame\.scss}line{font-family:\0000366}}
 .value_6:before, .value_6:after {
   content: "6";
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/sam\/Sites\/rummy\/app\/sass\/_shame\.scss}line{font-family:\0000358}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/sam\/Sites\/rummy\/app\/sass\/_shame\.scss}line{font-family:\0000366}}
 .value_7:before, .value_7:after {
   content: "7";
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/sam\/Sites\/rummy\/app\/sass\/_shame\.scss}line{font-family:\0000358}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/sam\/Sites\/rummy\/app\/sass\/_shame\.scss}line{font-family:\0000366}}
 .value_8:before, .value_8:after {
   content: "8";
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/sam\/Sites\/rummy\/app\/sass\/_shame\.scss}line{font-family:\0000358}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/sam\/Sites\/rummy\/app\/sass\/_shame\.scss}line{font-family:\0000366}}
 .value_9:before, .value_9:after {
   content: "9";
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/sam\/Sites\/rummy\/app\/sass\/_shame\.scss}line{font-family:\0000358}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/sam\/Sites\/rummy\/app\/sass\/_shame\.scss}line{font-family:\0000366}}
 .value_10:before, .value_10:after {
   content: "10";
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/sam\/Sites\/rummy\/app\/sass\/_shame\.scss}line{font-family:\0000358}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/sam\/Sites\/rummy\/app\/sass\/_shame\.scss}line{font-family:\0000366}}
 .value_11:before, .value_11:after {
   content: "11";
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/sam\/Sites\/rummy\/app\/sass\/_shame\.scss}line{font-family:\0000358}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/sam\/Sites\/rummy\/app\/sass\/_shame\.scss}line{font-family:\0000366}}
 .value_12:before, .value_12:after {
   content: "12";
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/sam\/Sites\/rummy\/app\/sass\/_shame\.scss}line{font-family:\0000358}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/sam\/Sites\/rummy\/app\/sass\/_shame\.scss}line{font-family:\0000366}}
 .value_13:before, .value_13:after {
   content: "13";
 }

@@ -15,6 +15,7 @@ $card_gap: 50px;
 	border: 1px solid $color_grey;
 	cursor: pointer;
 
+	@include border-radius($ratio-inv#{em});
 	@include transition(all .4s);
 
 	&:hover,

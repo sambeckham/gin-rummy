@@ -42,16 +42,25 @@ angular.module('rummyApp')
 		});
 	};
 
-	$scope.pickUpFromPile = function() {
-		if ( $scope.hand.length > handSize ){
+	$scope.pickUpFromPile = function(card) {
+		if ( $scope.hand.length < handSize ) {
+			console.log('You need to deal first');
+			return;
+		}
+		if ( $scope.hand.length > handSize ) {
 			console.log('You’ve already picked a card up');
+			return;
+		}
+		if ( card !== $scope.pile.length - 1 ) {
+			console.log('You can only pick up the top card', card, $scope.pile.length);
 			return;
 		}
 
 		socket.emit('move-cards', {
 			'origin' : 'pile',
 			'destination' : 'hand-' + $scope.username,
-			'amount' : 1
+			'amount' : 1,
+			'root' : card
 		});
 	};
 
@@ -66,7 +75,7 @@ angular.module('rummyApp')
 			'amount' : 1,
 			'root' : card
 		});
-		if ($scope.pile.length > 0) {
+		if ($scope.pile.length > 2) {
 			socket.emit('move-cards', {
 				'origin' : 'pile',
 				'destination' : 'deck',
