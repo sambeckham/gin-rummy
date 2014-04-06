@@ -1,0 +1,23 @@
+// Main Colors
+// --------------------------------------------------
+$color_black : #2c3e50;
+$color_grey : #95a5a6;
+$color_white : #ecf0f1;
+
+$color_red : #c0392b;
+$color_red_light : #e74c3c;
+$color_green : #27ae60;
+$color_green_light : #2ecc71;
+
+// Mixed Colors
+// --------------------------------------------------
+$color_grey_light : mix($color_grey, $color_white, percentage($ratio-inv));
+$color_grey_dark : mix($color_grey, $color_black, percentage($ratio-inv));
+
+$color_red_dark : mix($color_red, $color_black, percentage($ratio-inv));
+$color_green_dark : mix($color_green, $color_black, percentage($ratio-inv));
+
+
+// Translucent Colors
+// --------------------------------------------------
+$color_black_trans : rgba($color_black, $ratio-inv);

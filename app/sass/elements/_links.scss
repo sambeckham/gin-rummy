@@ -1,0 +1,14 @@
+a{
+    color: $color_red;
+    fill: $color_red;
+    text-decoration: none;
+
+    @include transition(color .4s, fill .4s);
+
+    &:hover,
+    &:focus,
+    &:active{
+        color: $color_red_dark;
+        fill: $color_red_dark;
+    }
+}

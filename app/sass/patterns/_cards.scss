@@ -1,0 +1,37 @@
+$card_width: 200px;
+$card_height: 300px;
+$card_gap: 50px;
+
+.card{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: $ratio-inv#{em};
+	width: $card_width;
+	height: $card_height;
+	background-color: $color_white;
+	position: relative;
+	padding: $ratio#{em};
+	border: 1px solid $color_grey;
+	cursor: pointer;
+
+	@include transition(all .4s);
+
+	&:hover,
+	&:focus{
+		z-index: 2;
+
+		@include box-shadow(0 0 $ratio#{em} $color_black_trans);
+		@include transform(scale(1.06));
+
+	}
+
+	& + .card{
+		margin-left: $card_gap - $card_width;
+	}
+}
+
+.card_back{
+	background-image: url('/images/card-back.svg');
+	@include box-shadow(inset 0 0 0 $ratio-inv#{em} $color_white);
+}

@@ -1,0 +1,41 @@
+html{
+    color: $color_black;
+    fill: $color_black;
+    font: $font-weight #{$font-size}%/#{$line-height} $primary-font;
+    height: 100%;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    word-wrap: break-word;
+
+    @media (min-width: $s) {
+        font-size: percentage( ( $font-size * $epsilon ) / 100 );
+    }
+    @media (min-width: $m) {
+        font-size: percentage( ( $font-size * $delta ) / 100 );
+    }
+}
+
+body{
+    height: 100%;
+}
+
+strong{
+    font-weight: bold;
+}
+
+em{
+    font-style: italic;
+}
+
+article{
+    padding-top: $ratio-inv#{em};
+
+    >p:first-of-type{
+        font-size: $delta#{em};
+    }
+
+    a:visited{
+        color: $color_red_light;
+        font-style: italic;
+    }
+}

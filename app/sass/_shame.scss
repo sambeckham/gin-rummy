@@ -1,44 +1,18 @@
-.hand{
-	display: block;
-	padding: 20px;
-	background-color: green;
-
-	li{
-		float: left;
-	}
-
-	@include clearfix();
+.table{
+	padding: $ratio-inv#{em};
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
-.card {
-	display: block;
-	width: 100px;
-	height: 162px;
-	background-color: #fff;
-	margin: 10px;
-	position: relative;
-	padding: 10px;
-	border: 1px solid grey;
-
-	@include border-radius(10px);
-
-	&:after,
-	&:before{
-		width: 20px;
-		height: 32px;
-		position: absolute;
-		color: #fff;
-	}
-
-	span{
-		display: block;
-		position: absolute;
-		top: 50%;
-		text-align: center;
-		left: 10px;
-		right: 10px;
-		margin-top: -.5em;
-	}
+.hand{
+	padding: $ratio#{em};
+	background-color: $color_green;
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-around;
+	align-content: center;
+	align-items: stretch;
 }
 
 .suit_spades,

@@ -1,4 +1,21 @@
-@import 'compass';
-@import 'compass/reset';
+@import "compass";
+@import "compass/reset";
 
-@import 'shame.scss'
+@import "base/variables.scss";
+@import "base/color-scheme.scss";
+@import "base/typography.scss";
+
+// @import "global/layout.scss";
+// @import "global/main.scss";
+// @import "global/sidenav.scss";
+
+// @import "elements/forms.scss";
+@import "elements/links.scss";
+@import "elements/media.scss";
+// @import "elements/tables.scss";
+@import "elements/text.scss";
+
+// @import "patterns/buttons.scss";
+@import "patterns/cards.scss";
+
+@import "shame.scss";
