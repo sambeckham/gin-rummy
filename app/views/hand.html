@@ -1,5 +1,5 @@
 <ul class="hand">
-    <li ng-repeat="card in hand" class="card card_{{ card.display.suit }} card_{{ card.display.value }}" ng-click="throwFromHand($index)">
+    <li ng-repeat="card in cards" class="card card_{{ card.display.suit }} card_{{ card.display.value }}" ng-click="action({card: $index})">
         {{ card.display.value }} of {{ card.display.suit }}
     </li>
 </ul>

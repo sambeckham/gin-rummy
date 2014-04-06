@@ -2,6 +2,7 @@
 
 angular.module('rummyApp')
 .controller('GameCtrl', function ($scope, socket, deck) {
+
 	var handSize = 7;
 
 	// TODO: A better way of getting a random hash
@@ -75,6 +76,7 @@ angular.module('rummyApp')
 			'amount' : 1,
 			'root' : card
 		});
+
 		if ($scope.pile.length > 2) {
 			socket.emit('move-cards', {
 				'origin' : 'pile',

@@ -5,8 +5,20 @@ angular.module('ryDirectives')
 		return {
 			templateUrl: 'views/hand.html',
 			restrict: 'E',
-			// link: function postLink(scope, element, attrs) {
-			// 	element.text('this is the hand directive');
-			// }
+			scope: {
+				cards: '=',
+				action: '&'
+			},
+			link: function(scope) {
+				var haveIWon = function() {
+					// TODO: Add in winning hand check
+				};
+				scope.$watch('cards', function() {
+					if( scope.cards.length !== 7 ){
+						return;
+					}
+					haveIWon();
+				});
+			}
 		};
 	});
