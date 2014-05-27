@@ -19,7 +19,7 @@ module.exports = function (grunt) {
     grunt.initConfig({
 
         // Project settings
-        yeoman: {
+        rummy: {
             // configurable paths
             app: require('./bower.json').appPath || 'app',
             dist: 'dist'
@@ -28,7 +28,7 @@ module.exports = function (grunt) {
         // Watches files for changes and runs tasks based on the changed files
         watch: {
             js: {
-                files: ['<%= yeoman.app %>/scripts/{,*/}*.js'],
+                files: ['<%= rummy.app %>/scripts/{,*/}*.js'],
                 tasks: ['newer:jshint:all'],
                 options: {
                     livereload: true
@@ -39,7 +39,7 @@ module.exports = function (grunt) {
                 tasks: ['newer:jshint:test', 'karma']
             },
             compass: {
-                files: ['<%= yeoman.app %>/sass/{,*/}*.{scss,sass}'],
+                files: ['<%= rummy.app %>/sass/{,*/}*.{scss,sass}'],
                 tasks: ['compass:server', 'autoprefixer']
             },
             gruntfile: {
@@ -50,9 +50,9 @@ module.exports = function (grunt) {
                     livereload: '<%= connect.options.livereload %>'
                 },
                 files: [
-                    '<%= yeoman.app %>/{,*/}*.html',
+                    '<%= rummy.app %>/{,*/}*.html',
                     '.tmp/styles/{,*/}*.css',
-                    '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
+                    '<%= rummy.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
                 ]
             }
         },
@@ -62,15 +62,16 @@ module.exports = function (grunt) {
             options: {
                 port: 9000,
                 // Change this to '0.0.0.0' to access the server from outside.
-                hostname: 'localhost',
-                livereload: 35729
+                hostname: '0.0.0.0',
+                livereload: 35729,
+                open: true
             },
             livereload: {
                 options: {
                     open: true,
                     base: [
                         '.tmp',
-                        '<%= yeoman.app %>'
+                        '<%= rummy.app %>'
                     ]
                 }
             },
@@ -80,13 +81,13 @@ module.exports = function (grunt) {
                     base: [
                         '.tmp',
                         'test',
-                        '<%= yeoman.app %>'
+                        '<%= rummy.app %>'
                     ]
                 }
             },
             dist: {
                 options: {
-                    base: '<%= yeoman.dist %>'
+                    base: '<%= rummy.dist %>'
                 }
             }
         },
@@ -99,7 +100,7 @@ module.exports = function (grunt) {
             },
             all: [
                 'Gruntfile.js',
-                '<%= yeoman.app %>/scripts/{,*/}*.js'
+                '<%= rummy.app %>/scripts/{,*/}*.js'
             ],
             test: {
                 options: {
@@ -116,8 +117,8 @@ module.exports = function (grunt) {
                     dot: true,
                     src: [
                         '.tmp',
-                        '<%= yeoman.dist %>/*',
-                        '!<%= yeoman.dist %>/.git*'
+                        '<%= rummy.dist %>/*',
+                        '!<%= rummy.dist %>/.git*'
                     ]
                 }]
             },
@@ -142,21 +143,21 @@ module.exports = function (grunt) {
         // Automatically inject Bower components into the app
         'bower-install': {
             app: {
-                html: '<%= yeoman.app %>/index.html',
-                ignorePath: '<%= yeoman.app %>/'
+                html: '<%= rummy.app %>/index.html',
+                ignorePath: '<%= rummy.app %>/'
             }
         },
 
         // Compiles Sass to CSS and generates necessary files if requested
         compass: {
             options: {
-                sassDir: '<%= yeoman.app %>/sass',
-                cssDir: '<%= yeoman.app %>/styles',
+                sassDir: '<%= rummy.app %>/sass',
+                cssDir: '<%= rummy.app %>/styles',
                 generatedImagesDir: '.tmp/images/generated',
-                imagesDir: '<%= yeoman.app %>/images',
-                javascriptsDir: '<%= yeoman.app %>/scripts',
-                fontsDir: '<%= yeoman.app %>/styles/fonts',
-                importPath: '<%= yeoman.app %>/bower_components',
+                imagesDir: '<%= rummy.app %>/images',
+                javascriptsDir: '<%= rummy.app %>/scripts',
+                fontsDir: '<%= rummy.app %>/styles/fonts',
+                importPath: '<%= rummy.app %>/bower_components',
                 httpImagesPath: '/images',
                 httpGeneratedImagesPath: '/images/generated',
                 httpFontsPath: '/styles/fonts',
@@ -166,7 +167,7 @@ module.exports = function (grunt) {
             },
             dist: {
                 options: {
-                    generatedImagesDir: '<%= yeoman.dist %>/images/generated'
+                    generatedImagesDir: '<%= rummy.dist %>/images/generated'
                 }
             },
             server: {
@@ -183,7 +184,7 @@ module.exports = function (grunt) {
             options: {
                 port: '<%= connect.options.port %>',
                 server: 'index.js',
-                bases: ['<%= yeoman.app  %>', '<%= yeoman.dist %>'],
+                bases: ['<%= rummy.app  %>', '<%= rummy.dist %>'],
                 // livereload: true,
                 // serverreload: true
             }
@@ -194,10 +195,10 @@ module.exports = function (grunt) {
             dist: {
                 files: {
                     src: [
-                        '<%= yeoman.dist %>/scripts/{,*/}*.js',
-                        '<%= yeoman.dist %>/styles/{,*/}*.css',
-                        '<%= yeoman.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
-                        '<%= yeoman.dist %>/styles/fonts/*'
+                        '<%= rummy.dist %>/scripts/{,*/}*.js',
+                        '<%= rummy.dist %>/styles/{,*/}*.css',
+                        '<%= rummy.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
+                        '<%= rummy.dist %>/styles/fonts/*'
                     ]
                 }
             }
@@ -207,18 +208,18 @@ module.exports = function (grunt) {
         // concat, minify and revision files. Creates configurations in memory so
         // additional tasks can operate on them
         useminPrepare: {
-            html: '<%= yeoman.app %>/index.html',
+            html: '<%= rummy.app %>/index.html',
             options: {
-                dest: '<%= yeoman.dist %>'
+                dest: '<%= rummy.dist %>'
             }
         },
 
         // Performs rewrites based on rev and the useminPrepare configuration
         usemin: {
-            html: ['<%= yeoman.dist %>/{,*/}*.html'],
-            css: ['<%= yeoman.dist %>/styles/{,*/}*.css'],
+            html: ['<%= rummy.dist %>/{,*/}*.html'],
+            css: ['<%= rummy.dist %>/styles/{,*/}*.css'],
             options: {
-                assetsDirs: ['<%= yeoman.dist %>']
+                assetsDirs: ['<%= rummy.dist %>']
             }
         },
 
@@ -227,9 +228,9 @@ module.exports = function (grunt) {
             dist: {
                 files: [{
                     expand: true,
-                    cwd: '<%= yeoman.app %>/images',
+                    cwd: '<%= rummy.app %>/images',
                     src: '{,*/}*.{png,jpg,jpeg,gif}',
-                    dest: '<%= yeoman.dist %>/images'
+                    dest: '<%= rummy.dist %>/images'
                 }]
             }
         },
@@ -237,9 +238,9 @@ module.exports = function (grunt) {
             dist: {
                 files: [{
                     expand: true,
-                    cwd: '<%= yeoman.app %>/images',
+                    cwd: '<%= rummy.app %>/images',
                     src: '{,*/}*.svg',
-                    dest: '<%= yeoman.dist %>/images'
+                    dest: '<%= rummy.dist %>/images'
                 }]
             }
         },
@@ -253,9 +254,9 @@ module.exports = function (grunt) {
                 },
                 files: [{
                     expand: true,
-                    cwd: '<%= yeoman.dist %>',
+                    cwd: '<%= rummy.dist %>',
                     src: ['*.html', 'views/{,*/}*.html'],
-                    dest: '<%= yeoman.dist %>'
+                    dest: '<%= rummy.dist %>'
                 }]
             }
         },
@@ -276,7 +277,7 @@ module.exports = function (grunt) {
         // Replace Google CDN references
         cdnify: {
             dist: {
-                html: ['<%= yeoman.dist %>/*.html']
+                html: ['<%= rummy.dist %>/*.html']
             }
         },
 
@@ -286,8 +287,8 @@ module.exports = function (grunt) {
                 files: [{
                     expand: true,
                     dot: true,
-                    cwd: '<%= yeoman.app %>',
-                    dest: '<%= yeoman.dist %>',
+                    cwd: '<%= rummy.app %>',
+                    dest: '<%= rummy.dist %>',
                     src: [
                         '*.{ico,png,txt}',
                         '.htaccess',
@@ -300,13 +301,13 @@ module.exports = function (grunt) {
                 },{
                     expand: true,
                     cwd: '.tmp/images',
-                    dest: '<%= yeoman.dist %>/images',
+                    dest: '<%= rummy.dist %>/images',
                     src: ['generated/*']
                 }]
             },
             styles: {
                 expand: true,
-                cwd: '<%= yeoman.app %>/styles',
+                cwd: '<%= rummy.app %>/styles',
                 dest: '.tmp/styles/',
                 src: '{,*/}*.css'
             }
@@ -315,7 +316,8 @@ module.exports = function (grunt) {
         // Run some tasks in parallel to speed up the build process
         concurrent: {
             server: [
-                'compass:server'
+                'compass:server',
+                ''
             ],
             test: [
                 'compass'
@@ -326,32 +328,6 @@ module.exports = function (grunt) {
                 'svgmin'
             ]
         },
-
-        // By default, your `index.html`'s <!-- Usemin block --> will take care of
-        // minification. These next options are pre-configured if you do not wish
-        // to use the Usemin blocks.
-        // cssmin: {
-        //   dist: {
-        //     files: {
-        //       '<%= yeoman.dist %>/styles/main.css': [
-        //         '.tmp/styles/{,*/}*.css',
-        //         '<%= yeoman.app %>/styles/{,*/}*.css'
-        //       ]
-        //     }
-        //   }
-        // },
-        // uglify: {
-        //   dist: {
-        //     files: {
-        //       '<%= yeoman.dist %>/scripts/scripts.js': [
-        //         '<%= yeoman.dist %>/scripts/scripts.js'
-        //       ]
-        //     }
-        //   }
-        // },
-        // concat: {
-        //   dist: {}
-        // },
 
         // Test settings
         karma: {
@@ -373,9 +349,8 @@ module.exports = function (grunt) {
             'clean:server',
             'bower-install',
             'newer:jshint',
-            'concurrent:server',
+            'compass:server',
             'express',
-            // 'connect:livereload',
             'watch'
         ]);
     });
