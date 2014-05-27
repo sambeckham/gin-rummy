@@ -2,7 +2,7 @@
 
 angular.module('rummyApp')
 	.controller('MainCtrl', function ($scope, socket) {
-		$scope.ip = '192.168.0.10'; //The ip address of your machine/server
+		$scope.ip = '0.0.0.0'; //The ip address of your machine/server
 		$scope.port = '9000'; // The port. This is set in Gruntfile.js
 
 		socket.emit('join', $scope.username);

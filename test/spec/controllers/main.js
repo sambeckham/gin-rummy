@@ -3,20 +3,25 @@
 describe('Controller: MainCtrl', function () {
 
   // load the controller's module
-  beforeEach(module('rummyApp'));
+  beforeEach(angular.mock.module('rummyApp'));
 
   var MainCtrl,
     scope;
 
   // Initialize the controller and a mock scope
-  beforeEach(inject(function ($controller, $rootScope) {
+  beforeEach(angular.mock.inject(function ($controller, $rootScope) {
     scope = $rootScope.$new();
     MainCtrl = $controller('MainCtrl', {
-      $scope: scope
+      $scope: scope,
+      socket: new sockMock($rootScope)
     });
   }));
 
-  it('should attach a list of awesomeThings to the scope', function () {
-    expect(scope.awesomeThings.length).toBe(3);
+  it('should set the ip address to 0.0.0.0', function () {
+    expect(scope.ip).toBe('0.0.0.0');
+  });
+
+  it('should set the port to 9000', function () {
+    expect(scope.port).toBe('9000');
   });
 });

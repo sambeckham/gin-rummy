@@ -77,7 +77,7 @@ module.exports = function (grunt) {
             },
             test: {
                 options: {
-                    port: 9001,
+                    port: 9000,
                     base: [
                         '.tmp',
                         'test',
@@ -364,7 +364,8 @@ module.exports = function (grunt) {
         'clean:server',
         'concurrent:test',
         'autoprefixer',
-        'connect:test',
+        'express',
+        // 'connect:test',
         'karma'
     ]);
 

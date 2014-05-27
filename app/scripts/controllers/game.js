@@ -6,7 +6,7 @@ angular.module('rummyApp')
 	var handSize = 7;
 
 	// TODO: A better way of getting a random hash
-	$scope.username = Math.random().toString(36).slice(10);
+	$scope.username = Math.random().toString(36).slice(-10);
 	$scope.deck = [];
 	$scope.pile = [];
 	$scope.hand = [];
